@@ -3,6 +3,8 @@ import * as path from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import { app, shell, BrowserWindow } from 'electron'
 
+import { onNavbar } from './api/navbar'
+
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
@@ -10,6 +12,7 @@ function createWindow(): void {
     height: 670,
     show: false,
     autoHideMenuBar: true,
+    titleBarStyle: 'hidden',
     ...(process.platform === 'linux'
       ? {
           icon: path.join(__dirname, '../../build/icon.png')
@@ -38,6 +41,9 @@ function createWindow(): void {
     mainWindow.loadFile(path.join(__dirname, '../renderer/index.html'))
   }
 }
+// custom api
+
+onNavbar()
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
