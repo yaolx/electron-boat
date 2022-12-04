@@ -1,7 +1,7 @@
 import { ipcMain, BrowserWindow } from 'electron'
 
-export function onNavbar() {
-  ipcMain.on('navBar', (event, val) => {
+export function onToolbar() {
+  ipcMain.on('toolbar', (event, val) => {
     /**
      * 通过BrowserWindow.fromWebContents方法拿到window实例
      * event.sender 是发送消息的WebContents实例

@@ -15,8 +15,8 @@ const { Content, Sider } = Layout
 
 function LayoutIndex() {
   const [collapsed, setCollapsed] = useState(false)
-  const onNavbar = (type) => {
-    window.electron.onNavbar(type)
+  const onToolbar = (type) => {
+    window.electron.onToolbar(type)
   }
   const collapsedClass = collapsed ? '' : styles.collapsed
   return (
@@ -26,7 +26,7 @@ function LayoutIndex() {
         <Sider className={cs(styles.sider, collapsedClass)} collapsedWidth="0" trigger={null} collapsed={collapsed}>
           <User />
           <Menu />
-          <SettingOutlined className={styles.setting} onClick={() => onNavbar('devTool')} />
+          <SettingOutlined className={styles.setting} onClick={() => onToolbar('devTool')} />
           <div className={styles.folder}>
             {collapsed ? <MenuUnfoldOutlined onClick={() => setCollapsed(!collapsed)} /> : <MenuFoldOutlined onClick={() => setCollapsed(!collapsed)} />}
           </div>

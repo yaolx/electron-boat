@@ -3,7 +3,7 @@ import * as path from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import { app, shell, BrowserWindow } from 'electron'
 
-import { onNavbar } from './api/navbar'
+import { onToolbar } from './api/toolBar'
 
 function createWindow(): void {
   // Create the browser window.
@@ -43,7 +43,7 @@ function createWindow(): void {
 }
 // custom api
 
-onNavbar()
+onToolbar()
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

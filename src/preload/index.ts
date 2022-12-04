@@ -4,8 +4,8 @@ import { contextBridge, ipcRenderer } from 'electron'
 // Custom APIs for renderer
 const api = {
   // 最小化，放大，关闭事件
-  onNavbar: (val) => {
-    ipcRenderer.send('navBar', val)
+  onToolbar: (val) => {
+    ipcRenderer.send('toolbar', val)
   }
 }
 

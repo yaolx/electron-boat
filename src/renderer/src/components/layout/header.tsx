@@ -10,8 +10,8 @@ const IconFont = createFromIconfontCN({
   scriptUrl: 'https://at.alicdn.com/t/c/font_3807038_qj3err6v8j.js'
 })
 function HeaderLayout() {
-  const onNavbar = (type) => {
-    window.electron.onNavbar(type)
+  const onToolbar = (type) => {
+    window.electron.onToolbar(type)
   }
   return (
     <Header className={styles.header}>
@@ -20,9 +20,9 @@ function HeaderLayout() {
       </div>
       <div className={styles.drag_area}></div>
       <div className={styles.oper_btns}>
-        <IconFont type="icon-suoxiao" className={styles.btn} onClick={() => onNavbar('mini')} />
-        <IconFont type="icon-fangda" className={styles.btn} onClick={() => onNavbar('big')} />
-        <IconFont type="icon-guanbi" className={styles.btn} onClick={() => onNavbar('close')} />
+        <IconFont type="icon-suoxiao" className={styles.btn} onClick={() => onToolbar('mini')} />
+        <IconFont type="icon-fangda" className={styles.btn} onClick={() => onToolbar('big')} />
+        <IconFont type="icon-guanbi" className={styles.btn} onClick={() => onToolbar('close')} />
       </div>
     </Header>
   )
