@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 
-import { ExportOutlined, MessageOutlined, ContactsOutlined, EditOutlined, AppstoreOutlined } from '@ant-design/icons'
+import { MessageOutlined, ContactsOutlined, EditOutlined, AppstoreOutlined } from '@ant-design/icons'
 import cs from 'classnames'
 import { map } from 'lodash'
 

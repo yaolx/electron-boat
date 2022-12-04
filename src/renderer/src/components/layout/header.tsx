@@ -7,7 +7,7 @@ import styles from './styles/index.module.less'
 
 const { Header } = Layout
 const IconFont = createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/c/font_3807038_qj3err6v8j.js'
+  scriptUrl: 'https://at.alicdn.com/t/c/font_3807038_qj3err6v8j.js'
 })
 function HeaderLayout() {
   const onNavbar = (type) => {
