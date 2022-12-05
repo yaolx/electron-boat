@@ -13,6 +13,7 @@ asarUnpack:
 afterSign: build/notarize.js
 win:
   executableName: electron-boat
+  verifyUpdateCodeSignature: false
 nsis:
   oneClick: false
   allowToChangeInstallationDirectory: true
@@ -40,5 +41,6 @@ appImage:
   artifactName: ${name}-${version}.${ext}
 npmRebuild: false
 publish:
-  provider: generic
-  url: https://example.com/auto-updates
+  provider: github
+  repo: electron-boat
+  owner: yaolx
