@@ -4,10 +4,11 @@ import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import { app, shell, BrowserWindow } from 'electron'
 
 import { onToolbar } from './api/toolBar'
-
+import { checkUpdate } from './api/update'
+let mainWindow
 function createWindow(): void {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 900,
     height: 670,
     show: false,
@@ -41,9 +42,6 @@ function createWindow(): void {
     mainWindow.loadFile(path.join(__dirname, '../renderer/index.html'))
   }
 }
-// custom api
-
-onToolbar()
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -60,7 +58,9 @@ app.whenReady().then(() => {
   })
 
   createWindow()
-
+  // custom api
+  onToolbar()
+  checkUpdate(mainWindow)
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.

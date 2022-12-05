@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 
-import { SettingOutlined, MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
+import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
 import { Layout } from 'antd'
 import cs from 'classnames'
 
@@ -9,15 +9,13 @@ import Suspense from '@/components/suspense'
 
 import Header from './header'
 import Menu from './menu'
+import Setting from './settting'
 import styles from './styles/index.module.less'
 import User from './user'
 const { Content, Sider } = Layout
 
 function LayoutIndex() {
   const [collapsed, setCollapsed] = useState(false)
-  const onToolbar = (type) => {
-    window.electron.onToolbar(type)
-  }
   const collapsedClass = collapsed ? '' : styles.collapsed
   return (
     <Layout className={styles.layout}>
@@ -26,7 +24,7 @@ function LayoutIndex() {
         <Sider className={cs(styles.sider, collapsedClass)} collapsedWidth="0" trigger={null} collapsed={collapsed}>
           <User />
           <Menu />
-          <SettingOutlined className={styles.setting} onClick={() => onToolbar('devTool')} />
+          <Setting />
           <div className={styles.folder}>
             {collapsed ? <MenuUnfoldOutlined onClick={() => setCollapsed(!collapsed)} /> : <MenuFoldOutlined onClick={() => setCollapsed(!collapsed)} />}
           </div>

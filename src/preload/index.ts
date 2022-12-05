@@ -6,6 +6,17 @@ const api = {
   // 最小化，放大，关闭事件
   onToolbar: (val) => {
     ipcRenderer.send('toolbar', val)
+  },
+  appUpdater: {
+    checkUpdate: () => {
+      ipcRenderer.send('checkForUpdate')
+    },
+    quitAndInstall: () => {
+      ipcRenderer.send('checkForUpdate')
+    },
+    getAppVersion: (func) => {
+      ipcRenderer.on('message', (_event, ...args) => func(...args))
+    }
   }
 }
 
