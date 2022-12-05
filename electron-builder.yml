@@ -6,14 +6,13 @@ files:
   - '!**/.vscode/*'
   - '!src/*'
   - '!electron.vite.config.{js,ts,mjs,cjs}'
-  - '!{.eslintignore,.eslintrc.cjs,.prettierignore,.prettierrc.yaml,dev-app-update.yml,CHANGELOG.md,README.md}'
+  - '!{.eslintignore,.eslintrc.js,.prettierignore,.prettierrc,dev-app-update.yml,CHANGELOG.md,README.md}'
   - '!{tsconfig.json,tsconfig.node.json,tsconfig.web.json}'
 asarUnpack:
   - '**/*.{node,dll}'
 afterSign: build/notarize.js
 win:
   executableName: electron-boat
-  verifyUpdateCodeSignature: false
 nsis:
   oneClick: false
   allowToChangeInstallationDirectory: true
@@ -44,3 +43,5 @@ publish:
   provider: github
   repo: electron-boat
   owner: yaolx
+  private: false
+  releaseType: release
