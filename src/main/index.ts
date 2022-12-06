@@ -59,7 +59,9 @@ app.whenReady().then(() => {
 
   createWindow()
   // custom api
+  // 工具栏自定义
   onToolbar()
+  // 版本更新
   checkUpdate(mainWindow)
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the

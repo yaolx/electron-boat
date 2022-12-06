@@ -4,7 +4,7 @@ import { SettingOutlined } from '@ant-design/icons'
 import { Button, Dropdown, Modal, Progress, Spin } from 'antd'
 
 import styles from './styles/index.module.less'
-const { appUpdater } = window.electron
+const { appUpdater, onToolbar } = window.xElectron
 function Setting() {
   const [visible, setVisible] = useState(false)
   const [version, setVersion] = useState('')
@@ -14,7 +14,7 @@ function Setting() {
   const onClick = ({ key }) => {
     switch (key) {
       case 'devTool':
-        window.electron.onToolbar(key)
+        onToolbar(key)
         break
       case 'update':
         setVisible(!visible)

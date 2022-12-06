@@ -32,3 +32,24 @@ $ npm run build:mac
 # For Linux
 $ npm run build:linux
 ```
+
+### Publish
+
+```bash
+# For windows
+$ npm run publish:win
+
+# For macOS
+$ npm run publish:mac
+
+# For Linux
+$ npm run publish:linux
+```
+
+### update log
+
+1.脚手架搭建，eslint 配置
+
+2.集成 github actions，配置 workflows，完成自动发布
+
+3.页面基本布局、开启 devTools、版本更新
