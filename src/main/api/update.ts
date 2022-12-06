@@ -15,7 +15,7 @@ export function checkUpdate(mainWindow) {
       message: err
     })
   })
-  // 开始检查更新
+  // 检测是否需要更新
   autoUpdater.on('checking-for-update', () => {
     sendUpdateMessage({
       cmd: 'checking-for-update',
@@ -61,13 +61,13 @@ export function checkUpdate(mainWindow) {
   // 监听渲染进程消息，开始检查更新
   ipcMain.on('checkForUpdate', () => {
     autoUpdater.checkForUpdates()
-    sendUpdateMessage({
-      cmd: 'version',
-      message: app.getVersion()
-    })
   })
   // 监听渲染进程消息，立即退出安装
   ipcMain.on('quitAndInstall', () => {
     autoUpdater.quitAndInstall()
+  })
+  // 获取版本号
+  ipcMain.handle('getAppVersion', () => {
+    return app.getVersion()
   })
 }

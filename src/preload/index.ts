@@ -8,15 +8,20 @@ const api = {
     ipcRenderer.send('toolbar', val)
   },
   appUpdater: {
+    // 检查更新
     checkUpdate: () => {
       ipcRenderer.send('checkForUpdate')
     },
+    // 退出安装
     quitAndInstall: () => {
-      ipcRenderer.send('checkForUpdate')
+      ipcRenderer.send('quitAndInstall')
     },
-    getAppVersion: (func) => {
+    // 更新进度
+    updateProgress: (func) => {
       ipcRenderer.on('message', (_event, ...args) => func(...args))
-    }
+    },
+    // 获取版本信息
+    getAppVersion: () => ipcRenderer.invoke('getAppVersion')
   }
 }
 
