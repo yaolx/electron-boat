@@ -1,9 +1,9 @@
 import * as path from 'path'
 
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
-import { app, shell, BrowserWindow, ipcMain } from 'electron'
+import { app, shell, BrowserWindow } from 'electron'
 
-import { onToolbar, checkUpdate, trayInit } from './api'
+import { onToolbar, checkUpdate, AppTray } from './api'
 let mainWindow
 function createWindow(): void {
   // Create the browser window.
@@ -68,7 +68,7 @@ app.whenReady().then(() => {
   // 版本更新
   checkUpdate(mainWindow)
   // 版本更新
-  trayInit(mainWindow)
+  AppTray.trayInit(mainWindow)
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.

@@ -1,4 +1,4 @@
 import { onToolbar } from './toolBar'
-import { trayInit } from './tray'
+import { AppTray } from './tray'
 import { checkUpdate } from './update'
-export { onToolbar, checkUpdate, trayInit }
+export { onToolbar, checkUpdate, AppTray }

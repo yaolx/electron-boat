@@ -10,8 +10,10 @@ const api = {
     },
     onPlay: (val) => {
       ipcRenderer.send('songPlay', val)
-    }
+    },
+    onSendNotice: (val) => ipcRenderer.invoke('notice_tip', val)
   },
+  webView: {},
   appUpdater: {
     // 检查更新
     checkUpdate: () => {

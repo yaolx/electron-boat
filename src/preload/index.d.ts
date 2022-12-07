@@ -7,6 +7,7 @@ declare global {
       mainView: {
         onToolbar: (val: T) => void
         onPlay: (val: T) => void
+        onSendNotice: (val: T) => void
       }
       appUpdater: {
         checkUpdate: () => void
