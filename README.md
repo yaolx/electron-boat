@@ -48,10 +48,12 @@ $ npm run publish:linux
 
 ### update log
 
-1.脚手架搭建，eslint 配置
+1. 脚手架搭建，eslint 配置
 
-2.集成 github actions，配置 workflows，完成自动发布
+2. 集成 github actions，配置 workflows，完成自动发布
 
-3.页面基本布局、开启 devTools、版本更新
+3. 页面基本布局、开启 devTools、版本更新
 
-4.系统托盘、消息通知
+4. 系统托盘、气泡消息通知
+
+5. 应用单实例控制
