@@ -1,10 +1,9 @@
 import * as path from 'path'
 
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
-import { app, shell, BrowserWindow } from 'electron'
+import { app, shell, BrowserWindow, ipcMain } from 'electron'
 
-import { onToolbar } from './api/toolBar'
-import { checkUpdate } from './api/update'
+import { onToolbar, checkUpdate, trayInit } from './api'
 let mainWindow
 function createWindow(): void {
   // Create the browser window.
@@ -13,6 +12,7 @@ function createWindow(): void {
     height: 670,
     show: false,
     autoHideMenuBar: true,
+    frame: false,
     titleBarStyle: 'hidden',
     ...(process.platform === 'linux'
       ? {
@@ -27,6 +27,10 @@ function createWindow(): void {
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
+  })
+  // 隐藏窗口
+  mainWindow.on('closed', () => {
+    mainWindow = null
   })
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
@@ -63,6 +67,8 @@ app.whenReady().then(() => {
   onToolbar()
   // 版本更新
   checkUpdate(mainWindow)
+  // 版本更新
+  trayInit(mainWindow)
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.

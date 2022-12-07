@@ -4,7 +4,10 @@ declare global {
   interface Window {
     electron: ElectronAPI
     xElectron: {
-      onToolbar: (val: T) => void
+      mainView: {
+        onToolbar: (val: T) => void
+        onPlay: (val: T) => void
+      }
       appUpdater: {
         checkUpdate: () => void
         quitAndInstall: () => void

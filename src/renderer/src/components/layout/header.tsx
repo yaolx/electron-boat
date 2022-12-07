@@ -6,13 +6,13 @@ import { Layout } from 'antd'
 import styles from './styles/index.module.less'
 
 const { Header } = Layout
-const { onToolbar } = window.xElectron
+const { mainView } = window.xElectron
 const IconFont = createFromIconfontCN({
   scriptUrl: 'https://at.alicdn.com/t/c/font_3807038_qj3err6v8j.js'
 })
 function HeaderLayout() {
   const onClickToolbar = (type) => {
-    onToolbar(type)
+    mainView.onToolbar(type)
   }
   return (
     <Header className={styles.header}>

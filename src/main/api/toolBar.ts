@@ -12,7 +12,7 @@ export function onToolbar() {
         window?.minimize()
         break
       case 'close': // 关闭窗口
-        window?.close()
+        window?.hide()
         break
       case 'big': // 全屏/取消全屏
         window?.isMaximized() ? window?.unmaximize() : window?.maximize()
