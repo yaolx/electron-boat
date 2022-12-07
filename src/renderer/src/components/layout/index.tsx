@@ -20,16 +20,16 @@ function LayoutIndex() {
   return (
     <Layout className={styles.layout}>
       <Header />
-      <Layout>
+      <Layout className={styles.center}>
         <Sider className={cs(styles.sider, collapsedClass)} collapsedWidth="0" trigger={null} collapsed={collapsed}>
           <User />
           <Menu />
-          <Setting />
-          <div className={styles.folder}>
+          {collapsed ? '' : <Setting />}
+          <div className={cs(styles.folder, collapsedClass)}>
             {collapsed ? <MenuUnfoldOutlined onClick={() => setCollapsed(!collapsed)} /> : <MenuFoldOutlined onClick={() => setCollapsed(!collapsed)} />}
           </div>
         </Sider>
-        <Content>
+        <Content className={styles.content}>
           <Suspense>
             <Outlet />
           </Suspense>

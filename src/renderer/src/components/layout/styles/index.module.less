@@ -2,7 +2,9 @@
   height: 100vh;
   width: 100%;
 }
-
+.center {
+  background-color: #3d4b6d;
+}
 .header {
   width: 100%;
   height: 40px !important;
@@ -34,10 +36,17 @@
 
 .folder {
   position: absolute;
-  top: 0;
+  display: inline-flex;
+  bottom: 0;
   right: -19px;
   color: #1890ff;
   font-size: 20px;
+  &.collapsed {
+    &.collapsed {
+      right: 0;
+      color: #fff;
+    }
+  }
 }
 
 .sider {
@@ -94,7 +103,10 @@
     margin-left: 10px;
   }
 }
-
+.content {
+  border-top-left-radius: 8px;
+  background-color: #fff;
+}
 .update {
   display: flex;
   flex-direction: column;
