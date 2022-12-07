@@ -3,7 +3,7 @@ import * as path from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import { app, shell, BrowserWindow } from 'electron'
 
-import { onToolbar, checkUpdate, AppTray } from './api'
+import { onToolbar, checkUpdate, AppTray, setSingleInstance } from './api'
 let mainWindow
 function createWindow(): void {
   // Create the browser window.
@@ -57,6 +57,8 @@ app.whenReady().then(() => {
   })
 
   createWindow()
+  // 设置单实例窗口
+  setSingleInstance(mainWindow)
   // custom api
   // 工具栏自定义
   onToolbar()
