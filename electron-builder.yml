@@ -2,6 +2,9 @@ appId: com.electron.app
 productName: electron-boat
 directories:
   buildResources: build
+extraResources:
+  from: 'asset/'
+  to: 'asset/'
 files:
   - '!**/.vscode/*'
   - '!src/*'
@@ -12,6 +15,7 @@ asarUnpack:
   - '**/*.{node,dll}'
 afterSign: build/notarize.js
 win:
+  icon: 'asset/icon.ico'
   executableName: electron-boat
 nsis:
   oneClick: false
@@ -20,6 +24,7 @@ nsis:
   shortcutName: ${productName}
   uninstallDisplayName: ${productName}
   createDesktopShortcut: always
+
 mac:
   entitlementsInherit: build/entitlements.mac.plist
   extendInfo:

@@ -14,11 +14,6 @@ function createWindow(): void {
     autoHideMenuBar: true,
     frame: false,
     titleBarStyle: 'hidden',
-    ...(process.platform === 'linux'
-      ? {
-          icon: path.join(__dirname, '../../build/icon.png')
-        }
-      : {}),
     webPreferences: {
       preload: path.join(__dirname, '../preload/index.js'),
       sandbox: false
@@ -67,8 +62,9 @@ app.whenReady().then(() => {
   onToolbar()
   // 版本更新
   checkUpdate(mainWindow)
-  // 版本更新
+  // 系统托盘，消息提醒
   AppTray.trayInit(mainWindow)
+
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.

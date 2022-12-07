@@ -1,5 +1,6 @@
 import { Tray, ipcMain, Menu, nativeImage } from 'electron'
 
+import { getAssetPath } from '../utils'
 function sleep(ms) {
   return new Promise((resolve) => {
     setTimeout(resolve, ms)
@@ -47,7 +48,7 @@ function withMultiTime(task, timesLimit = 10) {
 }
 
 const maxBlinkCount = 10
-const defaultIcon = 'resources/images/icon.png'
+const defaultIcon = getAssetPath('./icon.png')
 export const AppTray = {
   tray: {} as Electron.Tray,
   stopPreviousBink: () => {},

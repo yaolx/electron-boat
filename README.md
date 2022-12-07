@@ -53,3 +53,5 @@ $ npm run publish:linux
 2.集成 github actions，配置 workflows，完成自动发布
 
 3.页面基本布局、开启 devTools、版本更新
+
+4.系统托盘、消息通知
