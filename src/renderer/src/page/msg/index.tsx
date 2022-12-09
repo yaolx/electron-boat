@@ -1,5 +1,5 @@
 import styles from './style/index.module.less'
-const { mainView } = window.xElectron
+const { mainView, webView } = window.xElectron
 function Msg() {
   const onClick = (text) => {
     mainView.onPlay(text)
@@ -11,10 +11,20 @@ function Msg() {
       iconType: 'info'
     })
   }
+  const openModal = (text) => {
+    webView.openInPopup({
+      title: text,
+      content: '我来了',
+      url: 'https://yaolx.github.io/'
+    })
+  }
   return (
     <div className={styles.msg}>
       <div className={styles.header}>
         <div>播放列表</div>
+        <div className={styles.notice} onClick={() => openModal('详情')}>
+          pop弹窗
+        </div>
         <div className={styles.notice} onClick={() => sendNotice('班级解散')}>
           消息通知
         </div>

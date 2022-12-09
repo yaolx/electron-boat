@@ -8,7 +8,7 @@ import styles from './styles/index.module.less'
 
 const menus = [
   {
-    title: '消息',
+    title: '组件demo',
     key: 'msg',
     url: 'https://yaolx.github.io/#/component',
     icon: <MessageOutlined />
@@ -20,8 +20,8 @@ const menus = [
     icon: <ContactsOutlined />
   },
   {
-    title: '学习',
-    key: 'study',
+    title: '我的博客',
+    key: 'myBlog',
     url: 'https://yaolx.github.io/#/front',
     icon: <EditOutlined />
   },

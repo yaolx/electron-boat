@@ -5,6 +5,7 @@ import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
 import { Layout } from 'antd'
 import cs from 'classnames'
 
+import Modal from '@/components/modal'
 import Suspense from '@/components/suspense'
 
 import Header from './header'
@@ -33,6 +34,7 @@ function LayoutIndex() {
           <Suspense>
             <Outlet />
           </Suspense>
+          <Modal />
         </Content>
       </Layout>
     </Layout>

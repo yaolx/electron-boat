@@ -5,7 +5,7 @@ import Layout from '@/components/layout'
 
 const Home = lazy(() => import('@/page/home'))
 const Msg = lazy(() => import('@/page/msg'))
-const Study = lazy(() => import('@/page/study'))
+const MyBlog = lazy(() => import('@/page/myBlog'))
 const Apps = lazy(() => import('@/page/apps'))
 const Address = lazy(() => import('@/page/address'))
 const routesConfig: RouteObject[] = [
@@ -26,8 +26,8 @@ const routesConfig: RouteObject[] = [
         element: <Address />
       },
       {
-        path: '/study',
-        element: <Study />
+        path: '/myBlog',
+        element: <MyBlog />
       },
       {
         path: '/apps',
