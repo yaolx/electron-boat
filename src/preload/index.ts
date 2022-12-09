@@ -13,7 +13,21 @@ const api = {
     },
     onSendNotice: (val) => ipcRenderer.invoke('notice_tip', val)
   },
-  webView: {},
+  webView: {
+    openInPopup({ url, ...rest }) {
+      const feature = [
+        'forcePopup',
+        ...Object.keys(rest)
+          .filter((key) => rest[key] !== false)
+          .map((key) => `${key}=${encodeURIComponent(rest[key])}`)
+      ]
+      window.open(url, '_blank', feature.join(','))
+    },
+    // 版本更新信息
+    onNewPopup: (func) => {
+      ipcRenderer.on('new-popup', (_event, ...args) => func(...args))
+    }
+  },
   appUpdater: {
     // 检查更新
     checkUpdate: () => {

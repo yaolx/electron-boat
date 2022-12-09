@@ -3,7 +3,7 @@ import * as path from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import { app, shell, BrowserWindow } from 'electron'
 
-import { onToolbar, checkUpdate, AppTray, setSingleInstance } from './api'
+import { onToolbar, checkUpdate, AppTray, setSingleInstance, setOpenHandler } from './api'
 let mainWindow
 function createWindow(): void {
   // Create the browser window.
@@ -16,7 +16,8 @@ function createWindow(): void {
     titleBarStyle: 'hidden',
     webPreferences: {
       preload: path.join(__dirname, '../preload/index.js'),
-      sandbox: false
+      sandbox: false,
+      webviewTag: true
     }
   })
 
@@ -66,7 +67,8 @@ app.whenReady().then(() => {
   checkUpdate(mainWindow)
   // 系统托盘，消息提醒
   AppTray.trayInit(mainWindow)
-
+  // 打开窗口事件
+  setOpenHandler(mainWindow.webContents)
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.

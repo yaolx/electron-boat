@@ -9,6 +9,10 @@ declare global {
         onPlay: (val: T) => void
         onSendNotice: (val: T) => void
       }
+      webView: {
+        openInPopup({ url, ...rest }: { [x: string]: string; url: string }): void
+        onNewPopup: (func: noop) => void
+      }
       appUpdater: {
         checkUpdate: () => void
         quitAndInstall: () => void
