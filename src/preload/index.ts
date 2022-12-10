@@ -8,12 +8,15 @@ const api = {
     onToolbar: (val) => {
       ipcRenderer.send('toolbar', val)
     },
+    // 播放音乐，传歌曲名称，消息提醒
     onPlay: (val) => {
       ipcRenderer.send('songPlay', val)
     },
+    // 发送通知
     onSendNotice: (val) => ipcRenderer.invoke('notice_tip', val)
   },
   webView: {
+    // 抽屉式弹窗
     openInPopup({ url, ...rest }) {
       const feature = [
         'forcePopup',
