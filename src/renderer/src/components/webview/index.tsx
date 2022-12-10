@@ -9,6 +9,6 @@ interface WebviewProps {
 function Webview(props: WebviewProps) {
   const { src, className, useragent } = props
   // Invalid allowpopups attribute
-  return <webview src={src} className={cs(styles.webview, className)} allowpopups="true" useragent={useragent}></webview>
+  return <webview src={src} className={cs(styles.webview, className)} useragent={useragent}></webview>
 }
 export default Webview

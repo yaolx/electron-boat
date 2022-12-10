@@ -3,7 +3,7 @@ import Icon from '@/components/icon'
 import styles from './style/index.module.less'
 import { addRecentApp } from './utils/app-utils'
 function AppItem(props: CategoryItem) {
-  const { title, url, id } = props
+  const { title, id } = props
   const gotoDetail = () => {
     addRecentApp(props)
   }

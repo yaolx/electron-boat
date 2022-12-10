@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import cs from 'classnames'
-import { map, get } from 'lodash'
+import { map } from 'lodash'
 
 import AppItem from './appItem'
 import styles from './style/index.module.less'
