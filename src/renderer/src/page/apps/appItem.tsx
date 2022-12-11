@@ -5,8 +5,8 @@ import Icon from '@/components/icon'
 import { TabsContext } from './reducer'
 import styles from './style/index.module.less'
 import { addRecentApp } from './utils/app-utils'
-function AppItem(props: CategoryItem) {
-  const { title, id } = props
+function AppItem(props: Menu) {
+  const { title, icon } = props
   const { dispatch } = useContext(TabsContext)
   const gotoDetail = () => {
     addRecentApp(props)
@@ -18,7 +18,7 @@ function AppItem(props: CategoryItem) {
   return (
     <div className={styles.appItem} onClick={gotoDetail}>
       <div className={styles.content}>
-        <Icon type={id} className={styles.icon} />
+        <Icon type={icon} className={styles.icon} />
         <div className={styles.title}>{title}</div>
       </div>
     </div>

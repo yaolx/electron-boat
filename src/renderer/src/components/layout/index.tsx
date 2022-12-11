@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 
-import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
+import { LeftSquareOutlined, RightSquareOutlined } from '@ant-design/icons'
 import { Layout } from 'antd'
 import cs from 'classnames'
 
@@ -31,7 +31,7 @@ function LayoutIndex() {
           <Menu onClickMenu={onClickMenu} />
           {collapsed ? '' : <Setting />}
           <div className={cs(styles.folder, collapsedClass)}>
-            {collapsed ? <MenuUnfoldOutlined onClick={() => setCollapsed(!collapsed)} /> : <MenuFoldOutlined onClick={() => setCollapsed(!collapsed)} />}
+            {collapsed ? <RightSquareOutlined onClick={() => setCollapsed(!collapsed)} /> : <LeftSquareOutlined onClick={() => setCollapsed(!collapsed)} />}
           </div>
         </Sider>
         <Content className={styles.content}>

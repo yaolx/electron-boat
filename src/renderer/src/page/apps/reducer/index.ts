@@ -9,7 +9,7 @@ export function tabsReducer(state, action) {
       const pos = findIndex(tabs, {
         id: action.payload.id
       })
-      const newTabs: CategoryItem[] = [...tabs]
+      const newTabs: Menu[] = [...tabs]
       const newCurTab = action.payload.id
       if (pos === -1) {
         newTabs.push(action.payload)

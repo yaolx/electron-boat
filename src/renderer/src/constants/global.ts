@@ -44,8 +44,8 @@ export const categories = [
     name: '常用工具2',
     children: [
       {
-        title: '授权工具21',
-        url: 'https://spanner-hub.beta.101.com/spanner-hub/index.html#/auth',
+        title: '授权工具test',
+        url: 'http://localhost:1314/',
         icon: 'app',
         id: '21'
       }
@@ -56,23 +56,23 @@ export const categories = [
 export const MENUS: Menu[] = [
   {
     title: '组件demo',
-    key: 'msg',
+    id: 'msg',
     icon: 'component'
   },
   {
     title: '通讯录',
-    key: 'address',
+    id: 'address',
     icon: 'address'
   },
   {
     title: '我的博客',
-    key: 'myBlog',
+    id: 'myBlog',
     url: 'https://yaolx.github.io/#/front',
     icon: 'blog'
   },
   {
     title: '应用工具',
-    key: 'apps',
+    id: 'apps',
     icon: 'app'
   }
 ]

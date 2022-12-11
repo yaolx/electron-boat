@@ -1,17 +1,11 @@
-interface CategoryItem {
-  title: string
-  url: string
-  id?: string
-}
-
 interface Categories {
   name: string
-  children: CategoryItem[]
+  children: Menu[]
 }
 
 interface Menu {
   title: string
-  key: string
+  id: string
   url?: string
   icon: string
 }

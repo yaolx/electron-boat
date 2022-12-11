@@ -27,7 +27,7 @@ function Apps() {
       name: '全部应用',
       children: reduce(
         map(categories, 'children'),
-        (arr: CategoryItem[], item) => {
+        (arr: Menu[], item) => {
           return arr.concat(item)
         },
         []

@@ -22,7 +22,7 @@ function Menu(props: MenuProps) {
   const activeHash = hash.slice(2)
   useEffect(() => {
     const menu = find(MENUS, {
-      key: activeHash
+      id: activeHash
     })
     if (menu?.url) {
       props.onClickMenu(menu.url)
@@ -31,9 +31,9 @@ function Menu(props: MenuProps) {
   return (
     <div className={styles.menu}>
       {map(MENUS, (menu) => {
-        const activeClass = menu.key === activeHash || (activeHash.includes(menu.key) && menu.key !== '') ? styles.active : ''
+        const activeClass = menu.id === activeHash || (activeHash.includes(menu.id) && menu.id !== '') ? styles.active : ''
         return (
-          <div key={menu.key} onClick={() => onSelectMenu(menu)} className={cs(styles.menu_item, activeClass)}>
+          <div key={menu.id} onClick={() => onSelectMenu(menu)} className={cs(styles.menu_item, activeClass)}>
             <Icon type={menu.icon} />
             <span className={styles.menu_title}>{menu.title}</span>
           </div>
