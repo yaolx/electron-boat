@@ -31,7 +31,7 @@ function Menu(props: MenuProps) {
   return (
     <div className={styles.menu}>
       {map(MENUS, (menu) => {
-        const activeClass = menu.id === activeHash || (activeHash.includes(menu.id) && menu.id !== '') ? styles.active : ''
+        const activeClass = menu.id === activeHash ? styles.active : ''
         return (
           <div key={menu.id} onClick={() => onSelectMenu(menu)} className={cs(styles.menu_item, activeClass)}>
             <Icon type={menu.icon} />
