@@ -17,7 +17,7 @@ function Menu(props: MenuProps) {
   const hash = location.hash
   const navigate = useNavigate()
   const onSelectMenu = (menu) => {
-    navigate(`/${menu.key}`)
+    navigate(`/${menu.id}`)
   }
   const activeHash = hash.slice(2)
   useEffect(() => {

@@ -6,46 +6,34 @@ export const padUserAgent =
   'Mozilla/5.0 (iPad; CPU OS 13_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/87.0.4280.77 Mobile/15E148 Safari/604.1'
 export const categories = [
   {
-    name: '常用工具1',
+    name: '常用工具',
     children: [
       {
-        title: '授权工具11',
-        url: 'https://yaolx.github.io/#/front',
+        title: '菜鸟工具',
+        url: 'https://c.runoob.com/',
         icon: 'app',
         id: '11'
       },
       {
-        title: '授权工具12',
-        url: 'https://yaolx.github.io/#/front',
+        title: '前端技术栈',
+        url: 'https://yaolx.github.io/#/site',
         icon: 'app',
         id: '12'
-      },
-      {
-        title: '授权工具13',
-        url: 'https://yaolx.github.io/#/front',
-        icon: 'app',
-        id: '13'
-      },
-      {
-        title: '授权工具14',
-        url: 'https://yaolx.github.io/#/front',
-        icon: 'app',
-        id: '14'
       },
       {
         title: '授权工具15',
         url: 'https://yaolx.github.io/#/front',
         icon: 'app',
-        id: '15'
+        id: '13'
       }
     ]
   },
   {
-    name: '常用工具2',
+    name: '公司',
     children: [
       {
-        title: '授权工具test',
-        url: 'http://localhost:1314/',
+        title: '授权工具',
+        url: 'https://spanner-hub.beta.101.com/spanner-hub/index.html#/auth',
         icon: 'app',
         id: '21'
       }
