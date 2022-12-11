@@ -10,24 +10,33 @@ export const categories = [
     children: [
       {
         title: '授权工具11',
-        url: 'https://spanner-hub.beta.101.com/spanner-hub/index.html#/auth',
-        id: 'authority'
+        url: 'https://yaolx.github.io/#/front',
+        icon: 'app',
+        id: '11'
       },
       {
-        title: '授权工具22',
-        url: 'https://spanner-hub.beta.101.com/spanner-hub/index.html#/auth'
+        title: '授权工具12',
+        url: 'https://yaolx.github.io/#/front',
+        icon: 'app',
+        id: '12'
       },
       {
-        title: '授权工具33',
-        url: 'https://spanner-hub.beta.101.com/spanner-hub/index.html#/auth'
+        title: '授权工具13',
+        url: 'https://yaolx.github.io/#/front',
+        icon: 'app',
+        id: '13'
       },
       {
-        title: '授权工具33',
-        url: 'https://spanner-hub.beta.101.com/spanner-hub/index.html#/auth'
+        title: '授权工具14',
+        url: 'https://yaolx.github.io/#/front',
+        icon: 'app',
+        id: '14'
       },
       {
-        title: '授权工具33',
-        url: 'https://spanner-hub.beta.101.com/spanner-hub/index.html#/auth'
+        title: '授权工具15',
+        url: 'https://yaolx.github.io/#/front',
+        icon: 'app',
+        id: '15'
       }
     ]
   },
@@ -36,7 +45,9 @@ export const categories = [
     children: [
       {
         title: '授权工具21',
-        url: 'https://spanner-hub.beta.101.com/spanner-hub/index.html#/auth'
+        url: 'https://spanner-hub.beta.101.com/spanner-hub/index.html#/auth',
+        icon: 'app',
+        id: '21'
       }
     ]
   }

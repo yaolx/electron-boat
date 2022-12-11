@@ -10,7 +10,7 @@ const IconFont = createFromIconfontCN({
 interface IconProps {
   type?: string
   className?: string
-  onClick?: () => void
+  onClick?: (e?) => void
 }
 function Icon(props: IconProps) {
   const { type = 'tools', className, onClick } = props

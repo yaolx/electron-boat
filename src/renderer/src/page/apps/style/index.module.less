@@ -52,6 +52,38 @@
 .app {
   height: 100%;
   background-color: #f7f8fa;
+  .tabs {
+    :global {
+      .ant-tabs-tab {
+        width: 140px;
+        height: 40px;
+        margin: 0 !important;
+        .ant-tabs-tab-btn {
+          width: 100%;
+        }
+      }
+      .ant-tabs-tab-active {
+        background-color: #fff;
+      }
+      .ant-tabs-content,
+      .ant-tabs-tabpane {
+        height: 100%;
+      }
+    }
+  }
+  .tabTitle {
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .delete {
+      margin-right: 5px;
+      font-size: 16px;
+      &.hidden {
+        visibility: hidden;
+      }
+    }
+  }
 }
 
 .appItem {
