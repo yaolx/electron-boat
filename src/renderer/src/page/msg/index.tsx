@@ -30,13 +30,17 @@ function Msg() {
         </div>
       </div>
       <div className={styles.list}>
-        <div className={styles.title}>中国人</div>
+        <a className={styles.title} href="https://yaolx.github.io/">
+          中国人
+        </a>
         <div className={styles.play} onClick={() => onClick('中国人')}>
           播放
         </div>
       </div>
       <div className={styles.list}>
-        <div className={styles.title}>忘情水</div>
+        <a className={styles.title} href="https://yaolx.github.io/?external" target="_blank" features="sss" rel="noreferrer">
+          忘情水
+        </a>
         <div className={styles.play} onClick={() => onClick('忘情水')}>
           播放
         </div>

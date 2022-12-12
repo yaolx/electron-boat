@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 import cs from 'classnames'
 import { v4 } from 'uuid'
@@ -27,6 +27,14 @@ function Webview(props: WebviewProps) {
       current && current.removeEventListener('dom-ready', () => {})
     }
   }, [])
-  return <webview src={src} className={cs(styles.webview, className)} useragent={useragent} ref={webviewRef}></webview>
+  // allowpopups是字符串的true，用boolean不起作用
+  // return <webview src={src} className={cs(styles.webview, className)} useragent={useragent} ref={webviewRef} allowpopups></webview>
+  return React.createElement('webview', {
+    ref: webviewRef,
+    className: cs(styles.webview, className),
+    src,
+    useragent,
+    allowpopups: 'true'
+  })
 }
 export default Webview

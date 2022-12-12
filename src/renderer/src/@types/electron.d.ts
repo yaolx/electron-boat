@@ -515,7 +515,7 @@ interface WebviewTag extends HTMLElement {
    * A `boolean`. When this attribute is present the guest page will be allowed to
    * open new windows. Popups are disabled by default.
    */
-  allowpopups: boolean
+  allowpopups: string
   /**
    * A `string` which is a list of strings which specifies the blink features to be
    * disabled separated by `,`. The full list of supported feature strings can be

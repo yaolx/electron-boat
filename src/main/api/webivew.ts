@@ -6,7 +6,7 @@ const WindowOpenStyle = {
   Navigate: 'navigate'
 }
 const UserDefineStyle = {}
-const globalDefaultStyle = WindowOpenStyle.Navigate
+const globalDefaultStyle = WindowOpenStyle.External
 function getDefaultStyle(webContents) {
   const { id } = webContents
   return UserDefineStyle[id] || globalDefaultStyle
@@ -20,7 +20,7 @@ function openExternal(_w, edata) {
 }
 // 内部开一个modal的弹窗
 function openPopup(webContents, edata, features) {
-  console.log('####', edata, features)
+  console.log('###1', edata)
   webContents.send('new-popup', {
     url: edata.url,
     ...features
@@ -59,6 +59,8 @@ function windowOpenHandler(webContents, edata) {
     return openExternal(webContents, edata)
   } else if (defaultStyle === WindowOpenStyle.Popup) {
     return openPopup(webContents, edata, enableFeatures)
+  } else if (defaultStyle === WindowOpenStyle.Navigate) {
+    return openNavigate(webContents, edata)
   }
   return {
     action: 'deny'

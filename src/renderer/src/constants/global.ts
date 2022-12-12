@@ -36,6 +36,12 @@ export const categories = [
         url: 'https://spanner-hub.beta.101.com/spanner-hub/index.html#/auth',
         icon: 'app',
         id: '21'
+      },
+      {
+        title: '本地test',
+        url: 'http://localhost:1314/#/site',
+        icon: 'app',
+        id: '22'
       }
     ]
   }
