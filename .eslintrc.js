@@ -24,7 +24,8 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     'react/react-in-jsx-scope': 0,
-    'react/no-unknown-property': ['error', { ignore: ['allowpopups', 'useragent'] }],
+    'react/no-unknown-property': ['error', { ignore: ['allowpopups', 'useragent', 'ref'] }],
+    '@typescript-eslint/adjacent-overload-signatures': 0,
     'import/order': [
       'error',
       {
