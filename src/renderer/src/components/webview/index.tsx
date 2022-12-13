@@ -1,7 +1,9 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import cs from 'classnames'
 import { v4 } from 'uuid'
+
+import Icon from '@/components/icon'
 
 import styles from './styles/index.module.less'
 interface WebviewProps {
@@ -11,6 +13,10 @@ interface WebviewProps {
 }
 function Webview(props: WebviewProps) {
   const { src, className, useragent } = props
+  const [goParams, setGoParams] = useState({
+    back: false,
+    forward: false
+  })
   const webviewRef = useRef<WebviewTag>(null)
   useEffect(() => {
     const { current } = webviewRef
@@ -22,19 +28,52 @@ function Webview(props: WebviewProps) {
           current && current.openDevTools()
         }
       })
+      const genGoParams = () => {
+        setGoParams({
+          back: current.canGoBack(),
+          forward: current.canGoForward()
+        })
+      }
+      current.addEventListener('did-navigate', genGoParams)
+      current.addEventListener('did-navigate-in-page', genGoParams)
     }
     return () => {
       current && current.removeEventListener('dom-ready', () => {})
+      current && current.removeEventListener('did-navigate', () => {})
+      current && current.removeEventListener('did-navigate-in-page', () => {})
     }
   }, [])
+
+  const onRefresh = () => {
+    const { current } = webviewRef
+    current && current.reload()
+  }
+  const go = (action) => {
+    const { current } = webviewRef
+    if (current) {
+      if (action === -1) {
+        current.goBack()
+      } else {
+        current.goForward()
+      }
+    }
+  }
   // allowpopups是字符串的true，用boolean不起作用
-  // return <webview src={src} className={cs(styles.webview, className)} useragent={useragent} ref={webviewRef} allowpopups></webview>
-  return React.createElement('webview', {
-    ref: webviewRef,
-    className: cs(styles.webview, className),
-    src,
-    useragent,
-    allowpopups: 'true'
-  })
+  return (
+    <div className={styles.chrome}>
+      <div className={styles.toolbar}>
+        <Icon type="left" onClick={() => go(-1)} className={goParams.back ? '' : styles.disbaled} />
+        <Icon type="right" onClick={() => go(1)} className={goParams.forward ? '' : styles.disbaled} />
+        <Icon type="refresh" className={styles.refresh} onClick={onRefresh} />
+      </div>
+      {React.createElement('webview', {
+        ref: webviewRef,
+        className: cs(styles.webview, className),
+        src,
+        useragent,
+        allowpopups: 'true'
+      })}
+    </div>
+  )
 }
 export default Webview

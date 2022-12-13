@@ -4,7 +4,7 @@ import cs from 'classnames'
 import styles from './styles/index.module.less'
 
 const IconFont = createFromIconfontCN({
-  scriptUrl: 'https://at.alicdn.com/t/c/font_3807038_o3u31c933pb.js'
+  scriptUrl: 'https://at.alicdn.com/t/c/font_3807038_8swdoue6cv5.js'
 })
 
 interface IconProps {
