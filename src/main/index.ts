@@ -1,7 +1,7 @@
 import * as path from 'path'
 
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
-import { app, shell, BrowserWindow } from 'electron'
+import { app, BrowserWindow } from 'electron'
 
 import { onToolbar, checkUpdate, AppTray, setSingleInstance, setOpenHandler } from './api'
 let mainWindow
@@ -16,8 +16,8 @@ function createWindow(): void {
     titleBarStyle: 'hidden',
     webPreferences: {
       preload: path.join(__dirname, '../preload/index.js'),
-      sandbox: false,
-      webviewTag: true
+      webviewTag: true,
+      nodeIntegrationInSubFrames: true
     }
   })
 

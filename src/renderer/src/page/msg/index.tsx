@@ -38,7 +38,7 @@ function Msg() {
         </div>
       </div>
       <div className={styles.list}>
-        <a className={styles.title} href="https://yaolx.github.io/?external" target="_blank" features="sss" rel="noreferrer">
+        <a className={styles.title} href="https://yaolx.github.io/?external" target="_blank" rel="noreferrer">
           忘情水
         </a>
         <div className={styles.play} onClick={() => onClick('忘情水')}>

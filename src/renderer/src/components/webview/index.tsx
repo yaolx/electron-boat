@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import cs from 'classnames'
 import { v4 } from 'uuid'
@@ -23,7 +23,7 @@ function Webview(props: WebviewProps) {
     if (current) {
       current.addEventListener('dom-ready', () => {
         const uuid = v4()
-        console.log(`window['debug${uuid}']() to open devtool for webview`)
+        console.log(`'window['debug${uuid}']()' to open devtool for webview`)
         window[`debug${uuid}`] = () => {
           current && current.openDevTools()
         }
@@ -43,11 +43,12 @@ function Webview(props: WebviewProps) {
       current && current.removeEventListener('did-navigate-in-page', () => {})
     }
   }, [])
-
+  // 刷新
   const onRefresh = () => {
     const { current } = webviewRef
     current && current.reload()
   }
+  // 前进后退
   const go = (action) => {
     const { current } = webviewRef
     if (current) {
@@ -59,6 +60,7 @@ function Webview(props: WebviewProps) {
     }
   }
   // allowpopups是字符串的true，用boolean不起作用
+  const trueAsStr = 'true' as never
   return (
     <div className={styles.chrome}>
       <div className={styles.toolbar}>
@@ -66,13 +68,7 @@ function Webview(props: WebviewProps) {
         <Icon type="right" onClick={() => go(1)} className={goParams.forward ? '' : styles.disbaled} />
         <Icon type="refresh" className={styles.refresh} onClick={onRefresh} />
       </div>
-      {React.createElement('webview', {
-        ref: webviewRef,
-        className: cs(styles.webview, className),
-        src,
-        useragent,
-        allowpopups: 'true'
-      })}
+      <webview src={src} className={cs(styles.webview, className)} useragent={useragent} allowpopups={trueAsStr}></webview>
     </div>
   )
 }
