@@ -16,8 +16,7 @@ function createWindow(): void {
     titleBarStyle: 'hidden',
     webPreferences: {
       preload: path.join(__dirname, '../preload/index.js'),
-      webviewTag: true,
-      nodeIntegrationInSubFrames: true
+      webviewTag: true
     }
   })
 
@@ -51,7 +50,6 @@ app.whenReady().then(() => {
   app.on('browser-window-created', (_, window) => {
     optimizer.watchWindowShortcuts(window)
   })
-
   createWindow()
   // 设置单实例窗口
   setSingleInstance(mainWindow)

@@ -25,6 +25,12 @@ export const categories = [
         url: 'https://yaolx.github.io/#/front',
         icon: 'app',
         id: '13'
+      },
+      {
+        title: '强师',
+        url: 'https://web-bd.ykt.eduyun.cn/user/myTeach',
+        icon: 'app',
+        id: '14'
       }
     ]
   },
@@ -42,6 +48,12 @@ export const categories = [
         url: 'http://localhost:1314/#/site',
         icon: 'app',
         id: '22'
+      },
+      {
+        title: '云文档',
+        url: 'https://www.zxx.edu.cn/syncClassroom/prepare',
+        icon: 'app',
+        id: '33'
       }
     ]
   }
