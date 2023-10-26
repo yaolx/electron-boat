@@ -1,3 +1,8 @@
+import { is } from '@electron-toolkit/utils'
+
+import { getAssetPath } from '../utils'
+
+const fs = require('fs')
 const WindowOpenStyle = {
   External: 'external',
   Popup: 'popup',
@@ -65,5 +70,24 @@ function windowOpenHandler(webContents, edata) {
 }
 
 export function setOpenHandler(webContents) {
+  const winType = webContents.getType()
+  if (winType === 'webview') {
+    if (is.dev) {
+      webContents.executeJavaScript(`
+      var script = document.createElement('script');
+      script.type='module';
+      script.src = 'https://127.0.0.1:5172/__vite-plugin-monkey.entry.js';
+      document.head.appendChild(script);
+      `)
+    } else {
+      const file = getAssetPath('dev-assistant.user.js')
+      fs.readFile(file, function (_err, data) {
+        const text = data.toString()
+        webContents.executeJavaScript(`
+            ${text}
+            `)
+      })
+    }
+  }
   webContents.setWindowOpenHandler((edata) => windowOpenHandler(webContents, edata))
 }
