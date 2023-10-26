@@ -10,6 +10,7 @@ interface WebviewProps {
   src: string
   className?: string
   useragent?: string
+  id?: string
 }
 function Webview(props: WebviewProps) {
   const { src, className, useragent } = props
@@ -68,7 +69,7 @@ function Webview(props: WebviewProps) {
         <Icon type="right" onClick={() => go(1)} className={goParams.forward ? '' : styles.disbaled} />
         <Icon type="refresh" className={styles.refresh} onClick={onRefresh} />
       </div>
-      <webview src={src} className={cs(styles.webview, className)} useragent={useragent} allowpopups={trueAsStr}></webview>
+      <webview ref={webviewRef} src={src} className={cs(styles.webview, className)} useragent={useragent} allowpopups={trueAsStr}></webview>
     </div>
   )
 }

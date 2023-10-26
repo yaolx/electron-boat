@@ -4,6 +4,9 @@ import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import { app, BrowserWindow } from 'electron'
 
 import { onToolbar, checkUpdate, AppTray, setSingleInstance, setOpenHandler } from './api'
+import { getAssetPath } from './utils'
+
+const fs = require('fs')
 let mainWindow
 function createWindow(): void {
   // Create the browser window.
@@ -62,6 +65,19 @@ app.whenReady().then(() => {
   AppTray.trayInit(mainWindow)
   // 打开窗口事件
   setOpenHandler(mainWindow.webContents)
+  app.on('web-contents-created', (_event, webContents) => {
+    const winType = webContents.getType()
+    if (winType === 'webview') {
+      const file = getAssetPath('dev-assistant.user.js')
+      fs.readFile(file, function (_err, data) {
+        const text = data.toString()
+        webContents.executeJavaScript(`
+          ${text}
+          `)
+      })
+    }
+    setOpenHandler(webContents)
+  })
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.

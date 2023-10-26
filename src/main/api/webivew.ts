@@ -1,5 +1,3 @@
-import { shell } from 'electron'
-
 const WindowOpenStyle = {
   External: 'external',
   Popup: 'popup',
@@ -12,15 +10,14 @@ function getDefaultStyle(webContents) {
   return UserDefineStyle[id] || globalDefaultStyle
 }
 // 外部浏览器打开
-function openExternal(_w, edata) {
-  shell.openExternal(edata.url)
+function openExternal() {
+  // shell.openExternal(edata.url)
   return {
-    action: 'deny'
+    action: 'allow'
   }
 }
 // 内部开一个modal的弹窗
 function openPopup(webContents, edata, features) {
-  console.log('###1', edata)
   webContents.send('new-popup', {
     url: edata.url,
     ...features
@@ -49,14 +46,14 @@ function windowOpenHandler(webContents, edata) {
   })
   const defaultStyle = getDefaultStyle(webContents)
   if (enableFeatures.forceExternal) {
-    return openExternal(webContents, edata)
+    return openExternal()
   } else if (enableFeatures.forcePopup) {
     return openPopup(webContents, edata, enableFeatures)
   } else if (enableFeatures.forceNavigate) {
     return openNavigate(webContents, edata)
   }
   if (defaultStyle === WindowOpenStyle.External) {
-    return openExternal(webContents, edata)
+    return openExternal()
   } else if (defaultStyle === WindowOpenStyle.Popup) {
     return openPopup(webContents, edata, enableFeatures)
   } else if (defaultStyle === WindowOpenStyle.Navigate) {

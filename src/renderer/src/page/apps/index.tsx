@@ -66,7 +66,7 @@ function Apps() {
       return {
         label: tabTitleRender(tab),
         key: tab.id,
-        children: <Webview src={tab.url} useragent={padUserAgent} className={styles.webview}></Webview>
+        children: <Webview id={tab.id} src={tab.url} useragent={padUserAgent} className={styles.webview}></Webview>
       }
     })
     return newTabs
